@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚗 AutoHub - Nền Tảng Giao Dịch Ô Tô & Phụ Kiện Trực Tuyến
 
-## Getting Started
+> **Môn học:** Lập Trình WWW Java (ThS. Nguyễn Vũ Lâm)  
+> **Lớp:** DHKTPM19ATT - **Nhóm:** 7  
+> **Trường:** Đại học Công nghiệp TP.HCM (IUH)
 
-First, run the development server:
+---
 
+## 📖 Giới thiệu dự án
+**AutoHub** là nền tảng số hợp nhất hai khối nghiệp vụ đặc thù trên môi trường Desktop Web:
+1. **Showroom Ô tô kỹ thuật số:** Tra cứu xe, bảng đối đầu so sánh xe đa cột, công cụ dự toán lăn bánh theo tỉnh/thành phố, đặt lịch lái thử (xe Demo) và tính năng **Đặt cọc giữ xe trực tuyến 72h** tích hợp VNPay.
+2. **Sàn thương mại điện tử phụ kiện:** Tra cứu phụ kiện tương thích theo từng đời xe, quản lý giỏ hàng thông minh, trừ kho an toàn (@Transactional).
+3. **Trợ lý ảo AI:** Tích hợp mô hình ngôn ngữ lớn (Google Gemini API) theo cơ chế Function Calling tư vấn xe thông minh theo nhu cầu.
+
+---
+
+## 🛠️ Công nghệ sử dụng (Tech Stack)
+
+### Frontend
+- **Framework:** Next.js 14+ (App Router), TypeScript
+- **Styling & UI:** Tailwind CSS, Shadcn UI, Lucide Icons
+- **State Management:** Zustand, React Hook Form, Zod Schema
+- **Data Visualization:** Chart.js
+
+### Backend & Database
+- **Core:** Java 21 LTS, Spring Boot 3.x
+- **Security:** Spring Security 6 (Stateless JWT, RBAC)
+- **Database:** Microsoft SQL Server (3NF, Soft Delete, Indexing)
+- **Migration & ORM:** Flyway, Spring Data JPA / Hibernate
+
+### Tích hợp bên thứ ba (Third-party)
+- **Payment Gateway:** VNPay (HMAC-SHA512, IPN Webhook)
+- **Mail Relay:** Gmail SMTP Relay (@Async)
+- **AI Service:** Google Gemini API (Function Calling)
+
+---
+
+## 👥 Thành viên nhóm 7
+
+| STT | MSSV | Họ và tên | Vai trò |
+| :---: | :---: | :--- | :--- |
+| 1 | 23724561 | Trần Đức Nam | Trưởng nhóm |
+| 2 | 23645971 | Nguyễn Văn Quốc | Thành viên |
+| 3 | 23728381 | Nguyễn Văn Trọng | Thành viên |
+| 4 | 23651831 | Trần Nam Sơn | Thành viên |
+| 5 | 23649011 | Nguyễn Đỗ Anh Kiệt | Thành viên |
+
+---
+
+## 🚀 Hướng dẫn cài đặt & Khởi chạy (Local Development)
+
+### 1. Yêu cầu môi trường
+- Java 21 LTS
+- Node.js 18+ & npm/pnpm
+- MS SQL Server 2019+
+
+### 2. Cài đặt Backend
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone [https://github.com/TrongDavid614/autohub-ecommerce-platform.git](https://github.com/TrongDavid614/autohub-ecommerce-platform.git)
+cd autohub-backend
+# Cấu hình application.yml (Database, VNPay, Mail, Gemini API Key)
+./mvnw clean install
+./mvnw spring-boot:run
